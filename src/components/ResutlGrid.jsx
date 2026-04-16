@@ -5,8 +5,6 @@ import {
   setLoading,
   setError,
   setResult,
-  clearResults,
-  setActivetab,
 } from "../Redux/features/searchSlice";
 import { useEffect } from "react";
 import ResultCard from "./ResultCard";
