@@ -26,13 +26,15 @@ const ResutlGrid = () => {
           data = res.results.map((item) => ({
             id: item.id,
             type: "Photo",
-            title: item.alt_description.slice(0, 25),
+            title: item.alt_description
+              ? item.alt_description.slice(0, 25)
+              : "Untitled",
             thumbnail: item.urls.small,
             src: item.urls.full,
             url: item.links.html,
           }));
         }
-        if (activetab == "video") {
+        else if (activetab == "video") {
           let res = await fetchVideos(query);
           data = res.videos.map((item) => ({
             id: item.id,
@@ -43,7 +45,7 @@ const ResutlGrid = () => {
             url: item.url,
           }));
         }
-        if (activetab === "gif") {
+        else if (activetab === "gif") {
           let res = await fetchGif(query);
           data = res.data.map((item) => ({
             id: item.id,
@@ -64,7 +66,7 @@ const ResutlGrid = () => {
     getData();
   }, [query, activetab, dispatch]);
 
-  if (error) <h1>{error}</h1>;
+  if (error) return <h1>{error}</h1>;
   if (loading)
     return (
       <h1 className="text-xl font-semibold relative top-[30vh] left-[45%] text-white">

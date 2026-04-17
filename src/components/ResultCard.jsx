@@ -9,7 +9,7 @@ const addTo = (item)=>{
 }
   return (
     <div className='w-96 h-100 rounded-2xl bg-(--c6)'>
-        <a href={item.url} target="_blank">
+        <a href={item.url} target="_blank" rel="noopener noreferrer">
             {item.type === "Photo"?<img className='w-full h-[82%] object-cover rounded-2xl' src={item.thumbnail}></img>:''}
             {item.type === "Video"?<video className='w-full h-[82%] object-cover rounded-2xl'autoPlay loop muted src={item.src}></video>:''}
             {item.type == 'GIF'?  <img className='w-full h-[82%] object-cover rounded-2xl' src={item.thumbnail}/>:''}
