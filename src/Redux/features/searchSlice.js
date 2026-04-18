@@ -8,6 +8,8 @@ const searchSlice = createSlice({
     loading: false,
     error: null,
     result: [],
+    page: 1,
+    hasMore: true,
   },
   reducers: {
     setQuery(state, action) {
@@ -31,15 +33,37 @@ const searchSlice = createSlice({
     clearResults(state) {
       state.result = [];
     },
+    setPage(state, action) {
+      state.page = action.payload;
+    },
+
+    setHasMore(state, action) {
+      state.hasMore = action.payload;
+    },
+
+    appendResult(state, action) {
+      state.loading = false;
+      state.result = [...state.result, ...action.payload];
+    },
+
+    resetSearch(state) {
+      state.result = [];
+      state.page = 1;
+      state.hasMore = true;
+    },
   },
 });
 
 export const {
-  setQuery,
+ setQuery,
   setActivetab,
   setResult,
   setError,
   setLoading,
   clearResults,
+  appendResult,
+  setPage,
+  setHasMore, 
+  resetSearch
 } = searchSlice.actions;
 export default searchSlice.reducer;

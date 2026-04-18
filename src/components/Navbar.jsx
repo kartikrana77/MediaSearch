@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-20 flex flex-col min-h-screen bg-(--c6) px-15 py-5 rounded-xl items-center gap-4">
+    <div className=" hidden md:flex w-20 flex-col min-h-screen bg-(--c6) px-15 py-5 rounded-xl items-center gap-4">
       <div className="bg-[url(https://img.freepik.com/premium-photo/green-black-logo-with-green-leaves-it_1308175-138988.jpg)] h-15 w-15 object-contain bg-contain rounded-full"></div>
       <Link
         to="/"

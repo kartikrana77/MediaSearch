@@ -12,17 +12,28 @@ export async function fetchPhoto(query,page =1,per_page =30) {
     return response.data
 }
 
-export async function fetchVideos(query,per_page=50) {
+export async function fetchVideos(query,page = 1,per_page=50) {
     const response = await axios.get('https://api.pexels.com/videos/search',{
-        params:{query,per_page},
+        params:{query,per_page,page},
         headers:{Authorization:PEXELS_KEY}
-    })
+    });
     return response.data
 }
 
-export async function fetchGif(query,limit=30) {
-    const response = await axios.get('https://api.giphy.com/v1/gifs/search',{
-        params:{limit,api_key: GIPHY_KEY,q: query},
-    })
-    return response.data
+export async function fetchGif(query, page = 1) {
+  const limit = 30;
+
+  const response = await axios.get(
+    "https://api.giphy.com/v1/gifs/search",
+    {
+      params: {
+        api_key: GIPHY_KEY,
+        q: query,
+        limit: limit,
+        offset: (page - 1) * limit,
+      },
+    }
+  );
+
+  return response.data;
 }

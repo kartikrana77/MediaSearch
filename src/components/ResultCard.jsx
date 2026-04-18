@@ -8,11 +8,11 @@ const addTo = (item)=>{
   dispatch(addedToast())
 }
   return (
-    <div className='w-96 h-100 rounded-2xl bg-(--c6)'>
+    <div className='sm:w-96 w-90 h-100 rounded-2xl bg-(--c6)'>
         <a href={item.url} target="_blank" rel="noopener noreferrer">
             {item.type === "Photo"?<img className='w-full h-[82%] object-cover rounded-2xl' src={item.thumbnail}></img>:''}
             {item.type === "Video"?<video className='w-full h-[82%] object-cover rounded-2xl'autoPlay loop muted src={item.src}></video>:''}
-            {item.type == 'GIF'?  <img className='w-full h-[82%] object-cover rounded-2xl' src={item.thumbnail}/>:''}
+            {item.type === 'GIF'?  <img className='w-full h-[82%] object-cover rounded-2xl' src={item.thumbnail}/>:''}
         </a>
         <h2 className="bg-(--c10) w-10 text-center rounded text-white relative bottom-78 left-4">{item.type}</h2>
        <div className="p-5 text-white relative  bottom-5 rounded-b-2xl flex justify-between items-center">
