@@ -4,7 +4,7 @@ import ResutlGrid from '../components/ResutlGrid'
 
 const Home = () => {
   return (
-    <div>
+    <div className='sm:ml-24'>
       <Searchbar/>
       <Tabs />
       <ResutlGrid />
