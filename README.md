@@ -92,7 +92,7 @@ VITE_GIPHY_KEY=your_giphy_api_key
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/media-search-app.git
+git clone https://github.com/kartikrana77/MediaSearch.git
 
 # Navigate to project
 cd media-search-app
